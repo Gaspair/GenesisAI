@@ -1,10 +1,8 @@
 import { useState } from "react";
 
-function ToggleButton() {
-  const [isToggled, setIsToggled] = useState(false);
-
-  const handleToggle = () => {
-    setIsToggled(!isToggled);
+function ToggleButton(props) {
+  const handleButtonClick = () => {
+    props.handleToggle();
   };
 
   return (
@@ -17,19 +15,19 @@ function ToggleButton() {
           type="checkbox"
           id="toggleButton"
           className="sr-only"
-          checked={isToggled}
-          onChange={handleToggle}
+          checked={props.isToggled}
+          onChange={handleButtonClick}
         />
 
         <div
           className={`block  w-14 h-8 rounded-full ${
-            isToggled ? "bg-[#000000]" : "bg-[#CCCCCE]"
+            props.isToggled ? "bg-[#9d4eff]" : "bg-[#CCCCCE]"
           }`}
         ></div>
 
         <div
           className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition transform ${
-            isToggled ? "translate-x-6" : "translate-x-0"
+            props.isToggled ? "translate-x-6" : "translate-x-0"
           }`}
         ></div>
       </div>

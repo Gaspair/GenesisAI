@@ -15,7 +15,7 @@ function FormField({
       <div className="flex items-center gap-2 mb-2">
         <label
           htmlFor={name}
-          className="block text-sm font-medium text-gray-900"
+          className="block text-sm font-medium text-[#864eff] "
         >
           {labelName}
         </label>
@@ -23,7 +23,7 @@ function FormField({
           <button
             type="button"
             onClick={handleSurpriseMe}
-            className="font-semibold text-xs bg-green-700 text-white py-1 px-2 rounded-[5px] "
+            className="font-semibold text-xs bg-[#ff8a36] text-white py-1 px-2 rounded-[5px] "
           >
             Surprise Me
           </button>
