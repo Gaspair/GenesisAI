@@ -15,7 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <header
-        className={`w-full flex item-center  sm:px-8 py-4 border-b border-b-[#9d4eff] px-2 ${
+        className={`w-full flex item-center  sm:px-8 py-4 border-b border-b-[#ff8a36] px-2 ${
           isToggled ? " bg-[#262626]" : "bg-[#f9fafe]"
         }`}
       >
