@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function ToggleButton(props) {
   const handleButtonClick = () => {
     props.handleToggle();

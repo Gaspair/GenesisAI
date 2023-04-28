@@ -62,7 +62,7 @@ const Home = () => {
         );
 
         setSearchedResults(searchResult);
-      }, 500)
+      }, 50)
     );
   };
 
@@ -91,7 +91,6 @@ const Home = () => {
       <div className="mt-10">
         {loading ? (
           <div className="justify-center flex items-center">
-            {/* <img src={second} /> */}
             {<Loader />}
             <p className="text-[#9d4eff]">Fetching your data...</p>
           </div>
