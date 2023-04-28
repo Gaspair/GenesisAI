@@ -13,7 +13,7 @@ const RenderCards = ({ data, title }) => {
 };
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [allPosts, setAllPosts] = useState(null);
 
   const [searchText, setSearchText] = useState("");
@@ -24,12 +24,15 @@ const Home = () => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8080/api/v1/post", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://genesisai.onrender.com/api/v1/post",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (response.ok) {
           const result = await response.json();
@@ -59,23 +62,23 @@ const Home = () => {
         );
 
         setSearchedResults(searchResult);
-      }, 500)
+      }, 50)
     );
   };
 
   return (
     <section className="max-w-7xl mx-auto">
       <div>
-        <h1 className="font-extrabold text-[#222328] text-[32px]">
+        <h1 className="font-extrabold text-[#864eff] text-[32px]">
           The Community Showcase
         </h1>
-        <p className="mt-2 text-[#666e75] text-[16px] max-2 [500px]">
+        <p className="mt-2 text-[#9d4eff] text-[16px] max-2 [500px]">
           Browse through a collection of imaginative and visually stunning
           images generated.
         </p>
       </div>
 
-      <div className="mt-16">
+      <div className="mt-16 ">
         <FormField
           labelName="Search post"
           type="text"
@@ -88,12 +91,13 @@ const Home = () => {
       <div className="mt-10">
         {loading ? (
           <div className="justify-center flex items-center">
-            <Loader />
+            {<Loader />}
+            <p className="text-[#9d4eff]">Fetching your data...</p>
           </div>
         ) : (
           <>
             {searchText && (
-              <h2 className="font-medium text-[#666e75] text-xl mb-3">
+              <h2 className="font-medium text-[#9d4eff] text-xl mb-3">
                 Showing result for
                 <span className="text-[#222328]"> {searchText}</span>
               </h2>

@@ -19,13 +19,16 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch("http://localhost:8080/api/v1/post", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(form),
-        });
+        const response = await fetch(
+          "https://genesisai.onrender.com/api/v1/post",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(form),
+          }
+        );
 
         await response.json();
         navigate("/");
@@ -49,13 +52,16 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch("http://localhost:8080/api/v1/genesis", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt: form.prompt }),
-        });
+        const response = await fetch(
+          "https://genesisai.onrender.com/api/v1/genesis",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ prompt: form.prompt }),
+          }
+        );
 
         const data = await response.json();
 
@@ -73,8 +79,8 @@ const CreatePost = () => {
   return (
     <section className="max-w-7xl mx-auto">
       <div>
-        <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
-        <p className="mt-2 text-[#666e75] text-[16px] max-2 [500px]">
+        <h1 className="font-extrabold text-[#864eff] text-[32px]">Create</h1>
+        <p className="mt-2 text-[#9d4eff] text-[16px] max-2 [500px]">
           Create imaginative and visually stunning images through DALL-E AI and
           share them with the community.
         </p>
@@ -126,19 +132,19 @@ const CreatePost = () => {
           <button
             type="button"
             onClick={generateImage}
-            className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5"
+            className="text-white bg-[#ff8a36] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5"
           >
             {generatingImg ? "Generating..." : "Generate"}
           </button>
         </div>
         <div className="mt-10">
-          <p className="mt-2 text-[#666e75] text-[14px]">
+          <p className="mt-2 text-[#9d4eff] text-[14px]">
             Once you have created the image you want, you can share it with
             others in the community.
           </p>
           <button
             type="submit"
-            className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            className="mt-3 text-white bg-[#864eff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
             {loading ? "Loading..." : "Share with the community"}
           </button>
